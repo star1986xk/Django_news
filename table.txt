@@ -1,0 +1,34 @@
+CREATE SCHEMA `news_db` ;
+use news_db;
+CREATE TABLE `news_db`.`news_table` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `title` NVARCHAR(200) NOT NULL,
+  `content` TEXT NULL,
+  `author` VARCHAR(45) NULL,
+  `create_time` DATETIME NULL,
+  `get_time` DATETIME NULL,
+  `keyword` VARCHAR(45) NULL,
+  `url` VARCHAR(200) NULL,
+  `source` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`));
+
+
+修改数据库连接
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'news_db',
+        'USER': 'xxx',
+        'PASSWORD': 'xxx',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+pip install Django==2.1 djangorestframework django-cors-headers pymysql
+
+python manage.py runserver 0.0.0.0:8000
+
+
+
+
+

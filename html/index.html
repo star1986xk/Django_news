@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻搜索</title>
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap-table/1.16.0/bootstrap-table.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url("./bootstrap/img/bg.png");
+            opacity: 0.9;
+        }
+
+        table tr:nth-child(even) {
+            background: #d4dbd9;
+        }
+
+        table th {
+            background: #1fa1bc;
+        }
+
+        .operation > button {
+            margin: 10px;
+        }
+
+        .center-block {
+            display: block;
+            width: 21%;
+            margin: auto;
+        }
+
+        table {
+            table-layout: fixed !important;
+        }
+
+        table tbody tr td {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row"><h2 class="text-center">新闻搜索系统</h2></div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="row" style="height: 100px"></div>
+            <div class="row">
+                <div class="col-md-5">
+                    <p class="pull-right" style="margin-top:5px;">关键字：</p>
+                </div>
+                <div class="col-md-7">
+                    <textarea id="keylist" class="form-control" rows="5" name=textarea placeholder="请输入关键词"></textarea>
+                </div>
+            </div>
+            <div class="row" style="height: 50px"></div>
+            <div class="row">
+                <div class="col-md-5">
+                    <p class="pull-right" style="margin-top:10px;">搜索引擎：</p>
+                </div>
+                <div class="col-md-7">
+                    <div class="checkbox">
+                        <label>
+                            <input id="baidu" type="checkbox" value="百度">
+                            百度新闻
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input id="sina" type="checkbox" value="新浪">
+                            新浪新闻
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row" style="height: 50px"></div>
+            <div class="row">
+                <div class="col-md-5">
+                    <p class="pull-right" style="margin-top:5px;">搜索页数：</p>
+                </div>
+                <div class="col-md-7">
+                    <input type="text" class="form-control" id="page_count" placeholder="搜索页数">
+                </div>
+            </div>
+            <div class="row" style="height: 50px"></div>
+            <div class="row">
+                <div class="col-md-5">
+                    <p class="pull-right">运行状态：</p>
+                </div>
+                <div class="col-md-7">
+                    <p id="state" class="pull-left">待机</p>
+                </div>
+            </div>
+            <div class="row" style="height: 50px"></div>
+            <div class="row text-center">
+                <button id="btn_run" type="button" class="btn btn-success">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>开始搜索
+                </button>
+
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-8">
+            <div class="row" style="height: 45px"></div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="input-group pull-left">
+                        <span class="input-group-btn">
+                        <input id="search_text" type="text" class="form-control" placeholder="Search for...">
+                            <button id="btn_key" type="button" class="btn btn-success">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>关键字搜索
+                            </button>
+                          <button id="btn_repeat" type="button" class="btn bg-primary">
+                            <span class="glyphicon glyphicon glyphicon-repeat" aria-hidden="true"></span>刷新
+                          </button>
+                            <button id="btn_see" type="button" class="btn bg-success">
+                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>查看
+                          </button>
+                          <button id="btn_delete" type="button" class="btn bg-danger">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
+                          </button>
+                    </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="height: 20px"></div>
+            <div class="row">
+                <table id="mytab" class="table table-hover"></table>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="./bootstrap/js/jquery-3.5.0.min.js"></script>
+<script src="./bootstrap/js/bootstrap.min.js"></script>
+<script src="./bootstrap/js/my.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap-table/1.16.0/bootstrap-table.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap-table/1.16.0/locale/bootstrap-table-zh-CN.min.js"></script>
+</body>
+</html>

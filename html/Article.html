@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻内容</title>
+    <script src="./bootstrap/js/jquery-3.5.0.min.js"></script>
+</head>
+<script>
+    var path = "http://127.0.0.1:8000/"
+    $(function () {
+        var kv = window.location.href.split("?")
+        var v = kv[1].split("=")
+        $.ajax({
+            url: path + "info/",
+            type: "GET",
+            // contentType: "application/json;charset=UTF-8",
+            data: {
+                "id": v[1],
+            },
+            dataType: "json",//请求的数据类型
+            timeout: 5000,
+            success: function (returnData) {
+                $("body").append('<h2>' + returnData.datas.title + '</h2>')
+                $("body").append('<h5>作者：' + returnData.datas.author + '</h5>')
+                $("body").append('<h5>发布时间：' + returnData.datas.create_time + '</h5>')
+                $("body").append('<h5>抓取时间：' + returnData.datas.get_time + '</h5>')
+                $("body").append('<h5>关键字：' + returnData.datas.keyword + '</h5>')
+                $("body").append('<h5>来源：' + returnData.datas.source + '</h5>')
+                $("body").append('<h5>URL：' + returnData.datas.url + '</h5>')
+                $("body").append(returnData.datas.content)
+
+            }
+        });
+    });
+</script>
+<body>
+
+</body>
+</html>
